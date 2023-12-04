@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  apache:
+    image: waf:latest
+    networks:
+      dmz-test:
+        ipv4_address: 192.168.15.120
+    ports:
+      - "80:80"  # Correct indentation here
+    restart: always
+    volumes:
+      - ./Html:/var/www/html
+networks:
+  dmz-test:
+    external: true
